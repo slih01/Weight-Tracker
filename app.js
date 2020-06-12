@@ -55,6 +55,7 @@ app.get("/", function(req, res) {
 
 app.post("/", (req, res) => {
 
+// Get previous weight
   const changeInWeight = new Promise((resolve, reject) => {
     Weight.find({}, (err, foundWeights) => {
       if (err) {
@@ -72,10 +73,9 @@ app.post("/", (req, res) => {
   });
 
   changeInWeight.then((result) => {
-
     const weightInput = (req.body.weight);
 
-    // Change weight to lbs if in kgs//
+    // Change weight to lbs if in kgs and return to 2 decimal places//
     const unitOfWeight = req.body.weightFormat;
 
     function convertWeightToLbs(weight) {
@@ -87,8 +87,10 @@ app.post("/", (req, res) => {
       }
     }
     const weightInLbs = Number(convertWeightToLbs(weightInput)).toFixed(2);
+
     const weightChange = Number(weightInLbs - result).toFixed(2);
 
+// Create and save new document to database
     const weightEntry = new Weight({
       weight: weightInLbs,
       date: todaysDate,
