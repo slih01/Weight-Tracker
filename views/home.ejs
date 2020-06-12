@@ -1,0 +1,22 @@
+<%- include("partials/header") -%>
+
+<div class="container-fluid">
+
+  <form action="/" method="post">
+    <div class="input-group">
+      <input type="text" class="form-control weight-form-style"
+      placeholder="Enter Weight Here" name="weight">
+
+      <label for="denominationLabel"></label>
+      <select class="form-control" name="weightFormat">
+        <option>lbs</option>
+        <option>kgs</option>
+      </select>
+    </div>
+    <div id="button_id">
+
+    <button type="submit" class="btn btn-outline-success submit-button">Submit</button>
+      </div>
+  </form>
+</div>
+<%- include("partials/weight-table") -%>

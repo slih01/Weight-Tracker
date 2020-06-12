@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      <table class="table weight-grid">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Weight (lbs)</th>
+            <th scope="col">Weight Loss (lbs)</th>
+          </tr>
+        </thead>
+        <tbody>
+
+
+  <div id=row_id>
+
+          <%  weightData.forEach(function(entry, index) { %>
+
+                <tr>
+            <th scope="col" name="returnedWeight"><%= entry.date %> </th>
+            <th scope="col"><%= entry.weight %></th>
+            <th scope="col"><%= entry.change %></th>
+
+      </tr>
+              <% }) %>
+            </div>
+
+        </tbody>
+      </table>
+    </div>
